@@ -44,4 +44,4 @@ def upload_file():
     return jsonify({"error": "Failed to download file"}), 500
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0', port=5000)
