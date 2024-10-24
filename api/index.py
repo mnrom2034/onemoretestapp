@@ -9,12 +9,15 @@ def upload_to_gofile(file_stream, file_name):
     """Upload the file stream to Gofile.io."""
     upload_url = "https://store1.gofile.io/uploadFile"
     try:
+        # Use 'files' parameter with a tuple to include the filename
         response = requests.post(upload_url, files={file_name: file_stream})
         response.raise_for_status()  # Raise an error for bad responses
 
         response_json = response.json()
         if response_json.get("status") == "ok":
             return response_json["data"]["downloadPage"]
+        else:
+            print(f"Gofile upload failed: {response_json}")  # Log Gofile response if upload fails
     except requests.RequestException as e:
         print(f"Error uploading to Gofile: {e}")  # Log the error for debugging
     return None
