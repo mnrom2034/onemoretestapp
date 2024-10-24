@@ -45,5 +45,5 @@ def upload_file():
     return jsonify({"error": "Failed to download file"}), 500
 
 # This is the entry point for Vercel
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+#if __name__ == "__main__":
+    #app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
