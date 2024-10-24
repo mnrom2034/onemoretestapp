@@ -26,7 +26,7 @@ def upload_to_gofile(file_path):
             return download_link
     return None
 
-@app.route('/api/upload', methods=['POST'])  # Adjusted to start with /api
+@app.route('/api/upload', methods=['POST'])
 def upload_file():
     data = request.json
     url = data.get('url')
@@ -43,7 +43,4 @@ def upload_file():
             return jsonify({"gofile_link": gofile_link}), 200
         return jsonify({"error": "Failed to upload to Gofile"}), 500
     return jsonify({"error": "Failed to download file"}), 500
-
-# This is the entry point for Vercel
-#if __name__ == "__main__":
-    #app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    
